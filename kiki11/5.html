@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>นับถอยหลัง</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Patrick+Hand&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fff; /* พื้นหลังสีขาว */
+            font-family: "Mali", serif; /* ใช้ฟอนต์ที่น่ารัก */
+            text-align: center;
+        }
+        .countdown {
+            font-size: 6rem;
+            font-weight: bold;
+            color: #000000;
+            opacity: 0; /* เริ่มต้นที่ opacity 0 */
+            transform: translateY(50px); /* เริ่มต้นที่ตำแหน่งล่าง */
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* ทำให้ทั้งสองคุณสมบัติเปลี่ยนแปลง */
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown" class="countdown">3</div>
+
+    <script>
+        let countdownTime = 3; // ตั้งเวลาเริ่มต้นที่ 3 วินาที
+        const countdownElement = document.getElementById('countdown');
+
+        // ฟังก์ชันสำหรับนับถอยหลัง
+        function startCountdown() {
+            const countdownInterval = setInterval(function() {
+                countdownElement.textContent = countdownTime; // แสดงตัวเลขที่นับถอยหลัง
+                countdownElement.style.opacity = 1; // ทำให้ตัวเลขชัดขึ้น
+                countdownElement.style.transform = 'translateY(0)'; // ทำให้ตัวเลขลอยขึ้น
+
+                if (countdownTime === 0) {
+                    clearInterval(countdownInterval); // หยุดการนับถอยหลัง
+                    window.location.href = '6.html'; // เปลี่ยนไปยังหน้าถัดไป
+                }
+
+                countdownTime--;
+            }, 1000); // ทุกๆ 1 วินาที
+        }
+
+        // เริ่มนับถอยหลังเมื่อหน้าโหลด
+        window.onload = function() {
+            setTimeout(function() {
+                countdownElement.style.opacity = 1; // เริ่มต้นที่ opacity 1
+                countdownElement.style.transform = 'translateY(0)'; // เริ่มต้นที่ตำแหน่งลอยขึ้น
+                startCountdown(); // เริ่มนับถอยหลัง
+            }, 500); // ดีเลย์ 0.5 วินาทีก่อนเริ่ม
+        };
+    </script>
+</body>
+</html>
