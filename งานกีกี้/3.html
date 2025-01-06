@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กรอกรหัส 6 ตัว</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Patrick+Hand&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4);
+            font-family: "Mali", serif;
+            text-align: center;
+            position: relative;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 2s forwards;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .input-field {
+            font-size: 1.2rem;
+            font-family: "Mali", serif;
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .submit-button {
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            font-family: "Mali", serif;
+            color: #fff;
+            background-color: #ff4081;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #d81b60;
+        }
+
+        /* เพิ่มการตั้งค่ารูปภาพข้างๆ ฟอร์มที่เฉียง */
+        .left-image, .right-image {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) rotate(-10deg);
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .left-image {
+            left: 5%;
+        }
+
+        .right-image {
+            right: 5%;
+            transform: translateY(-50%) rotate(10deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- รูปภาพข้างซ้ายที่หมุนไปทางซ้าย -->
+    <img src="79c1b18e-22f0-4265-8800-45f66e154f43.jpg" alt="left image" class="left-image">
+    
+    <!-- รูปภาพข้างขวาที่หมุนไปทางขวา -->
+    <img src="05028c7c-ec5f-4c35-8760-8da22b96f2b7.jpg" alt="right image" class="right-image">
+
+    <div class="form-container">
+        <!-- เพิ่มอีโมจิเค้ก 🎂 ข้างบนกล่องข้อความ -->
+        <h2>กรุณากรอกรหัส 6 ตัว 🎂</h2>
+        <form id="codeForm">
+            <input type="text" id="codeInput" class="input-field" maxlength="6" placeholder="รหัส 6 ตัว" required>
+            <button type="submit" class="submit-button">ยืนยัน</button>
+        </form>
+        <div id="error-message" style="color: red; display: none;">รหัสไม่ถูกต้อง กรุณาลองใหม่</div>
+    </div>
+
+    <script>
+        const correctCode = "310150"; // กำหนดรหัสที่ถูกต้อง
+        const form = document.getElementById("codeForm");
+        const codeInput = document.getElementById("codeInput");
+        const errorMessage = document.getElementById("error-message");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const enteredCode = codeInput.value;
+
+            if (enteredCode === correctCode) {
+                alert("รหัสถูกต้อง! ยินดีต้อนรับ");
+                window.location.href = "4.html"; 
+            } else {
+                errorMessage.style.display = "block";
+                codeInput.value = "";
+            }
+        });
+    </script>
+</body>
+</html>

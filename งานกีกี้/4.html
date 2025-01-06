@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>พร้อมมั้ย?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Patrick+Hand&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4);
+            font-family: "Mali", serif; /* ใช้ฟอนต์ที่น่ารัก */
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            opacity: 0; /* เริ่มต้นที่ opacity 0 */
+            transform: translateY(50px); /* เริ่มต้นที่ตำแหน่งล่าง */
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* การเปลี่ยนแปลง opacity และการลอยขึ้น */
+        }
+        .container.show {
+            opacity: 1; /* ทำให้แสดงเมื่อคลาส .show ถูกเพิ่ม */
+            transform: translateY(0); /* ลอยขึ้นมา */
+        }
+        h1 {
+            font-size: 3rem;
+            color: #e91e63;
+            margin-bottom: 20px;
+        }
+        .button {
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            font-family: "Mali", serif;
+            color: #fff;
+            background-color: #ff4081;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #d81b60;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <h1>พร้อมมั้ย?</h1>
+        <button class="button" onclick="window.location.href='5.html';">ไปต่อ</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const container = document.getElementById('container');
+            setTimeout(function() {
+                container.classList.add('show'); // เพิ่มคลาส .show หลังจากดีเลย์
+            }, 500); // ดีเลย์ 0.5 วินาที
+        };
+    </script>
+</body>
+</html>
